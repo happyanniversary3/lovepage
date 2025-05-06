@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy 3rd Anniversary</title>
+    <style>
+        /* Initially hide the entire page content */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f8d0d6; /* Soft pink background */
+        }
+
+        /* Floating hearts animation */
+        .heart {
+            position: absolute;
+            animation: float 5s ease-in-out infinite;
+            font-size: 24px;
+            color: #ff3366;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+            }
+            50% {
+                transform: translateY(-30vh) rotate(45deg);
+            }
+            100% {
+                transform: translateY(100vh) rotate(90deg);
+            }
+        }
+
+        /* Password Section */
+        .password-container {
+            text-align: center;
+            margin-top: 100px;
+        }
+
+        .password-container input {
+            padding: 10px;
+            font-size: 1.2em;
+            border-radius: 5px;
+            border: 2px solid #ff3366;
+            margin-right: 10px;
+        }
+
+        .password-container button {
+            padding: 10px 20px;
+            font-size: 1.2em;
+            background-color: #ff3366;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .password-container button:hover {
+            background-color: #ff4d78;
+        }
+
+        /* Initially Hidden Page Content */
+        #pageContent {
+            display: none;
+        }
+
+        /* Header Section */
+        header {
+            text-align: center;
+            padding: 50px;
+            color: white;
+            background-image: url('your-image-path-here.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+
+        header h1 {
+            font-size: 3em;
+            font-family: 'Cursive', sans-serif;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+        }
+
+        .special-date {
+            font-size: 1.5em;
+            font-style: italic;
+            color: #333;
+            margin: 30px 0;
+            text-align: center;
+        }
+
+        .i-love-you {
+            font-size: 2em;
+            font-family: 'Cursive', sans-serif;
+            color: #ff3366;
+            margin-top: 30px;
+            text-align: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 1s ease-in-out;
+        }
+
+        .button-container {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .show-love-btn {
+            padding: 10px 20px;
+            font-size: 1.2em;
+            background-color: #ff3366;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s ease;
+        }
+
+        .show-love-btn:hover {
+            background-color: #ff4d78;
+        }
+
+        /* Button click animation */
+        .show-love-btn:active {
+            transform: scale(0.95); /* Button shrinks when clicked */
+        }
+
+        /* Photo Gallery Section */
+        .photo-gallery {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .photo-gallery img {
+            width: 100%;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .photo-gallery img:hover {
+            transform: scale(1.1) rotate(5deg);
+            filter: brightness(1.2);
+        }
+
+        footer {
+            text-align: center;
+            background-color: #f5c6cb;
+            padding: 20px;
+        }
+
+        footer p {
+            font-size: 1.2em;
+            font-family: 'Cursive', sans-serif;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Password Section -->
+    <div class="password-container">
+        <h2>Please enter the password to unlock the page</h2>
+        <input type="password" id="passwordInput" placeholder="Enter Password">
+        <button onclick="checkPassword()">Submit</button>
+    </div>
+
+    <!-- Hidden Page Content -->
+    <div id="pageContent">
+
+        <!-- Floating Hearts -->
+        <div class="heart" style="left: 20%; animation-duration: 6s;"></div>
+        <div class="heart" style="left: 50%; animation-duration: 5s;"></div>
+        <div class="heart" style="left: 80%; animation-duration: 7s;"></div>
+
+        <!-- Header Section -->
+        <header>
+            <h1>Happy 3rd Anniversary ❤️</h1>
+        </header>
+
+        <!-- Special Date Section -->
+        <div class="special-date">
+            <p>06.05.2022</p>
+        </div>
+
+        <!-- Button to Reveal "I Love You" -->
+        <div class="button-container">
+            <button class="show-love-btn" onclick="revealLove()">Click me!</button>
+        </div>
+
+        <!-- "I Love You" Section (Initially Hidden) -->
+        <div class="i-love-you" id="loveMessage">
+            <p>I Love You ❤️</p>
+        </div>
+
+        <!-- Photo Gallery Section -->
+        <div class="photo-gallery">
+            <img src="photo1.jpg" alt="Photo 1">
+            <img src="photo2.jpg" alt="Photo 2">
+            <img src="photo3.jpg" alt="Photo 3">
+            <img src="photo4.jpg" alt="Photo 4">
+            <img src="photo5.jpg" alt="Photo 5">
+            <img src="photo6.jpg" alt="Photo 6">
+        </div>
+
+        <!-- Footer Section -->
+        <footer>
+            <p>❤️❤️❤️</p>
+        </footer>
+
+    </div>
+
+    <script>
+        // Function to check if the entered password is correct
+        function checkPassword() {
+            // Get the entered password
+            var enteredPassword = document.getElementById("passwordInput").value;
+
+            // Check if the entered password matches "060522"
+            if (enteredPassword === "060522") {
+                // Reveal the page content
+                document.getElementById("pageContent").style.display = "block";
+
+                // Hide the password section
+                document.querySelector(".password-container").style.display = "none";
+            } else {
+                alert("Incorrect password. Please try again.");
+            }
+        }
+
+        // Reveal "I Love You" message
+        function revealLove() {
+            const loveMessage = document.getElementById('loveMessage');
+            loveMessage.style.visibility = 'visible';
+            loveMessage.style.opacity = 1;
+        }
+    </script>
+
+</body>
+</html>
